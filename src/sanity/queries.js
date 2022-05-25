@@ -1,6 +1,5 @@
 import {
   articlesInCategoryProjection,
-  contentProjection,
   commonFields,
   navProjection,
   pictureProjection
@@ -40,7 +39,6 @@ const queries = {
   ${order ? `| order(${order})` : ''}
   {
     ${type === 'category' ? `${articlesInCategoryProjection},` : ''}
-    ${contentProjection},
     ${commonFields},
     categories[]->{
       'slug': slug.current,

@@ -96,6 +96,7 @@ export const commonFields = `
   _updatedAt,
   hideHeader,
   metaDescription,
+  ${contentProjection},
   ${permalink},
   'picture': featuredImage${pictureProjection},
   'sections': contentSections[disable != true]{
@@ -108,6 +109,7 @@ export const commonFields = `
   title
 `
 
+// references(^._id) points to category id
 export const articlesInCategoryProjection = `
   'articles': *[
     _type == 'article' &&
