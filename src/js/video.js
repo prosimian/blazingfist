@@ -20,6 +20,7 @@
 
       const iframe = document.createElement('iframe')
 
+      iframe.classList.add('video__iframe')
       iframe.width = 640
       iframe.height = 360
       iframe.title = videoTitle

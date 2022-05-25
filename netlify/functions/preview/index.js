@@ -73,7 +73,7 @@ export async function handler (event) {
         content: [{ raw: htmlRaw, extension: 'html' }],
         css: [{ raw: css }],
         // add any classes added by javascript or extras to the safelist
-        safelist: ['js', 'menu-active', 'video__activated']
+        safelist: ['js', 'menu-active', 'video__activated', 'video__iframe']
       })
     : [{ css: '' }]
 

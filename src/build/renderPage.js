@@ -23,7 +23,7 @@ export default async function renderPage (page, engine, base) {
     content: [{ raw: htmlRaw, extension: 'html' }],
     css: [{ raw: css }],
     // add any classes added by javascript or extras to the safelist
-    safelist: ['js', 'menu-active', 'video__activated']
+    safelist: ['js', 'menu-active', 'video__activated', 'video__iframe']
   })
 
   // Tidy up.  Inline reduced CSS & any required JS.  Add style/script CSP meta.
