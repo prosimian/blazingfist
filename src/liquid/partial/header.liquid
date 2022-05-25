@@ -1,0 +1,38 @@
+<header class="site-header">
+  <nav
+    class="nav-primary c flex f-nw fai-c maxw-l"
+    aria-label="primary"
+  >
+    <a href="/" aria-label="Home Link" class="link-home lh uc">
+      {{ settings.siteTitle }}
+    </a>
+    {% if nav %}
+      <button
+        class="hamburger hamburger--collapse"
+        type="button"
+        aria-label="Menu"
+        aria-controls="navigation"
+        data-hamburger
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <ul id="navigation" class="nav-primary__menu flex fmr-2 ls-n">
+        {% for item in nav %}
+          {% assign link = item.page.permalink %}
+          <li>
+            <a
+              href="{{ link }}"
+              {% if page.slug == link %}
+                aria-current="page"
+              {% endif %}
+              class>
+              {{ item.menuItemTitle }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </nav>
+</header>

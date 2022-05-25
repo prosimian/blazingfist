@@ -1,0 +1,57 @@
+[build]
+  command = "npm run build"
+  publish = "site"
+
+[dev]
+  command = "npm run watch"
+  publish = "site"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions."preview"]
+  external_node_modules = ["purgecss"]
+  included_files = [
+    "netlify/functions/preview/js/**",
+    "netlify/functions/preview/liquid/**",
+    "netlify/functions/preview/style.css"
+  ]
+
+[[redirects]]
+from = "/preview"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+
+[[redirects]]
+from = "/articles/:slug/preview"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+
+[[redirects]]
+from = "/:slug/preview"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+
+[[redirects]]
+from = "/ytbg/:video"
+to = "https://i.ytimg.com/vi/:video/hqdefault.jpg"
+status = 200
+
+[[redirects]]
+from = "/vbg/:video"
+to = "https://i.vimeocdn.com/video/:video"
+status = 200
+
+[[redirects]]
+from = "/sanityImg/:project/:dataset/:image"
+to = "https://cdn.sanity.io/images/:project/:dataset/:image"
+status = 200
+
+[[headers]]
+for = "/*"
+
+  [headers.values]
+  Content-Security-Policy = "child-src 'none';connect-src 'none';font-src 'self';manifest-src 'self';media-src 'none';prefetch-src 'self';worker-src 'none';base-uri 'none';frame-src https://www.youtube-nocookie.com https://player.vimeo.com;img-src 'self' data: https://cdn.sanity.io https://i.ytimg.com https://i.vimeocdn.com;object-src 'none';script-src-attr 'none';upgrade-insecure-requests"

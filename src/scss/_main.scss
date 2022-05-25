@@ -1,0 +1,17 @@
+main {
+  &:focus {
+    outline: none;
+  }
+
+  >* {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+    width: 100%;
+  }
+
+  // when there aren't any sections below the page header
+  >header:last-child {
+    padding-bottom: var(--clamp-8);
+  }
+}

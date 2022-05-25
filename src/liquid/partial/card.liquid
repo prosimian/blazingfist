@@ -1,0 +1,19 @@
+<article class="b">
+
+  {% if picture %}
+    {{ picture | figure }}
+  {% endif %}
+
+  <div class="box-3 stack-s">
+
+    {% if title %}
+      <p class="lh-1 h6">{{ title }}</p>
+    {% endif %}
+
+    {% if content %}
+      {{ content | toHTML }}
+    {% endif %}
+
+  </div>
+
+</article>

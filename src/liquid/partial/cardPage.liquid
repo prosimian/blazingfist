@@ -1,0 +1,17 @@
+<article class="card">
+
+  {% if page.picture %}
+    {{ page.picture | figure }}
+  {% endif %}
+
+  <div class="box-30 stack-s">
+
+    {% if page.title %}
+      <p class="lh-1 mt-1 ta-r">
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+      </p>
+    {% endif %}
+
+  </div>
+
+</article>

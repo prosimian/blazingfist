@@ -1,0 +1,34 @@
+figure {
+  height: auto;
+  max-width: 100%;
+  width: max-content;
+  padding: 0;
+
+  img {
+    position: relative;
+    z-index: 3;
+  }
+}
+figcaption,
+figcaption p {
+  font-size: var(--clamp-1);
+  line-height: 1.5;
+  margin-top: .5rem;
+}
+
+.lqip-wrapper {
+  overflow: hidden; // so lqip blur doesn't leak out
+  position: relative;
+  z-index: 1;
+}
+.lqip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8vw) saturate(2);
+  z-index: 2;
+}

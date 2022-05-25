@@ -1,0 +1,18 @@
+{% if image %}
+<figure>
+
+  {% if image.isOpaque %}
+    <div class="lqip-wrapper">
+      <div class="lqip" style="background-image:url({{ image.lqip }});"></div>
+      {% render "partial/picture", image: image %}
+    </div>
+  {% else %}
+    {% render "partial/picture", image: image %}
+  {% endif %}
+
+  {% if caption %}
+    <figcaption class="mt-1">{{ caption | toHTML }}</figcaption>
+  {% endif %}
+
+</figure>
+{% endif %}

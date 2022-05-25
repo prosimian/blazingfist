@@ -1,0 +1,18 @@
+<p class="video-title lh-4 p-s">{{ title }}</p>
+<div
+  class="video video__{{ provider }}"
+  data-video-id="{{ videoId }}"
+  data-video-title="{{ title }}"
+  data-video-provider="{{ provider }}"
+  {% if background %}
+    data-background="{{ background }}"
+  {% elsif vimeo[videoId] %}
+    data-background="{{ vimeo[videoId] }}"
+  {% endif %}
+  aria-label="{{ title }}"
+  data-video
+>
+  <button type="button" class="video-play video-play__{{ provider }}">
+    <span class="visually-hidden">Play Video: {{ title }}</span>
+  </button>
+</div>

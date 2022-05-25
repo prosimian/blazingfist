@@ -1,0 +1,19 @@
+{% if content %}
+  <blockquote class="box-03 stack-5">
+    <p>{{ content }}</p>
+    <footer>
+      <p>
+        {% if authorLink %}
+          <a href="{{authorLink}}" target="_blank">
+            {{author}}
+          </a>
+        {% else %}
+          {{author}}
+        {% endif %}
+      </p>
+      {% if authorInfo %}
+        <p>{{authorInfo}}</p>
+      {% endif %}
+    </footer>
+  </blockquote>
+{% endif %}

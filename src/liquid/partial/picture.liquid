@@ -1,0 +1,15 @@
+<picture>
+  {% for format in image.formats %}
+    <source
+      type="image/{{format.type}}"
+      srcset="{{format.srcset}}"
+      sizes="{{format.sizes}}">
+  {% endfor %}
+  <img
+    src="{{image.src}}"
+    width="{{image.width}}"
+    height="{{image.height}}"
+    alt="{{image.alt}}"
+    loading="{{image.loading}}"
+    decoding="{{image.decoding}}">
+</picture>

@@ -1,0 +1,31 @@
+.cta {
+  a {
+    border: 1px solid var(--c-border);
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.4;
+    padding: var(--clamp-1) var(--clamp-3);
+    text-decoration: none;
+  }
+}
+.cta-center {
+  text-align: center;
+}
+.cta-right {
+  text-align: right;
+}
+.cta-small {
+  a {
+    font-size: var(--clamp-4);
+  }
+}
+.cta-medium {
+  a {
+    font-size: var(--clamp-6);
+  }
+}
+.cta-large {
+  a {
+    font-size: var(--clamp-8);
+  }
+}

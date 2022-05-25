@@ -1,0 +1,10 @@
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+
+  // prevent body scrolling when hamburger menu is open: YMMV
+  &.menu-active {
+    overflow: hidden;
+    touch-action: none;
+  }
+}

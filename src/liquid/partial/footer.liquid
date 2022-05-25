@@ -1,0 +1,13 @@
+<footer class="box-3 c flex fjc-b maxw-l">
+  {% if footer.items %}
+    <ul class="flex fmr-2 ls-n lc mt-1">
+      {% for item in footer.items %}
+        <li>
+          <a href="{{ item.page.permalink }}" class="c-cc td-n">
+            {{ item.menuItemTitle }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</footer>

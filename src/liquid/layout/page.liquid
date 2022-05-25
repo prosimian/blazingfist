@@ -1,0 +1,19 @@
+{% if page.hideHeader %}
+  <h1 class="vh">{{ page.title }}</h1>
+{% else %}
+  {% render 'partial/pageHeader', page: page %}
+{% endif %}
+
+{% if page._type == 'articleIndex' %}
+  {% render 'partial/archiveArticles', archive: archive.articles %}
+{% endif %}
+
+<section class="box-3 stack-main">
+  {% if page.content %}
+    {{ page.content | toHTML }}
+  {% endif %}
+
+  {% for section in page.sections %}
+    {{ section.content | toHTML }}
+  {% endfor %}
+</section>

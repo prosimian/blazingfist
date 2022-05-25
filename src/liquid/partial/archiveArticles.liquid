@@ -1,0 +1,13 @@
+<section class="box-3 grid-common g-8">
+  {% for item in archive %}
+    <article class="card">
+      {{ item.picture | figure }}
+
+      <div class="box-30 stack-s">
+        <p class="lh-1 mt-1 ta-r">
+          <a href="{{ item.permalink }}">{{ item.title }}</a>
+        </p>
+      </div>
+    </article>
+  {% endfor %}
+</section>

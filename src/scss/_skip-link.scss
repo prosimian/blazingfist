@@ -1,0 +1,18 @@
+.skip-link {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  padding: 0.25rem;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 99;
+  text-decoration: none;
+
+  &:focus {
+    width: max-content;
+  }
+
+  &:not(:focus) {
+    @extend .visually-hidden;
+  }
+}

@@ -1,0 +1,35 @@
+<form
+  name="contact-form"
+  method="POST"
+  class="contact-form stack-5"
+  netlify-honeypot="consultation"
+  data-netlify="true"
+  data-form
+  action="/thanks/"
+>
+  <div>
+    <label for="contact-name" class="required">Name</label>
+    <input name="Name" type="text" id="contact-name" required>
+  </div>
+  <div>
+    <label for="email" class="required">Email</label>
+    <input name="Email" type="email" id="email" required>
+  </div>
+  <div>
+    <label for="message" class="required">Message</label>
+    <textarea name="Message" id="message" required></textarea>
+  </div>
+  <div>
+    <label for="company">Company</label>
+    <input name="Company" type="text" id="company">
+  </div>
+  <div>
+    <label for="phone">Phone</label>
+    <input name="Phone" type="text" id="phone">
+  </div>
+  <div class="vh">
+    <label for="consultation">Consultation</label>
+    <input name="Consultation" type="text" id="consultation" tabindex="-1">
+  </div>
+  <button class="contact-submit" type="submit">Send</button>
+</form>

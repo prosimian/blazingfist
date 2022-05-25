@@ -1,0 +1,87 @@
+.nav-primary {
+  height: var(--header-height);
+
+  .link-home {
+    font-size: var(--clamp-3);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-left: var(--clamp-3);
+    min-width: max-content;
+  }
+
+  a {
+    display: block;
+    font-size: var(--clamp-1);
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover,
+    &[aria-current] {
+      color: var(--c-accent);
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav-primary__menu {
+  margin-left: auto;
+}
+
+// max-width must be equal to integer used in ResizeObserver
+// in src/js/extras/hamburger.js (for tabindex & active classes)
+@media screen and (max-width: 700px) {
+  .js {
+    .nav-primary {
+      justify-content: space-between;
+    }
+
+    .hamburger {
+      display: flex;
+      margin-right: var(--clamp-3);
+    }
+
+    .nav-primary__menu {
+      background-color: var(--c-bg);
+      flex-direction: column;
+      margin: 0;
+      padding: 3rem 1.2rem 0;
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      transform: scaleY(0);
+      transform-origin: top;
+      z-index: 3;
+
+      li {
+        margin-top: 1rem;
+      }
+
+      a {
+        padding: 0.5em 0;
+      }
+    }
+
+    .menu-active .nav-primary__menu {
+      transform: scaleY(1);
+      transition: transform 0.2s;
+    }
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .nav-primary__menu {
+    justify-content: flex-end;
+    margin-left: var(--clamp-8);
+
+    a {
+      padding: 0.4em 0;
+    }
+  }
+}

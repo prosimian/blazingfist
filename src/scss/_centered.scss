@@ -1,0 +1,16 @@
+[class^="centered"] {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.centered-large,
+.centered-jumbo {
+  font-weight: 700;
+  line-height: 1.2;
+}
+.centered-large {
+  font-size: var(--clamp-7);
+}
+.centered-jumbo {
+  font-size: var(--clamp-9);
+}
