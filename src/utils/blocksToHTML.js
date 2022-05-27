@@ -6,6 +6,36 @@ import image from './image.js'
 const blocksToHTML = (engine, blocks) => {
 
   const components = {
+
+    block: ({ children, value: { style } }) => {
+      const el = { tag: 'p', className: '' }
+
+      switch (style) {
+        case 'h2':
+          el.tag = 'h2'
+          break
+        case 'h3':
+          el.tag = 'h3'
+          break
+        case 'subhead':
+          el.className = 'subhead'
+          break
+        case 'centered':
+          el.className = 'centered'
+          break
+        case 'centeredLarge':
+          el.className = 'centered-large'
+          break
+        case 'centeredJumbo':
+          el.className = 'centered-jumbo'
+          break
+        default:
+          break
+      }
+
+      return `<${el.tag} class="${el.className}">${children}</${el.tag}>`
+    },
+
     marks: {
 
       internalLink: ({ children, value: { page } }) => {
