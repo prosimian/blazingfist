@@ -1,3 +1,4 @@
+import prism from 'prismjs'
 import { toHTML } from '@portabletext/to-html'
 
 import image from './image.js'
@@ -63,6 +64,17 @@ const blocksToHTML = (engine, blocks) => {
             </div>`
             )
           : ''
+      },
+
+      code: ({ value: { code, language } }) => {
+        const syntaxHighlight = prism.highlight(
+          code,
+          prism.languages[language],
+          language
+        )
+        return engine.renderFileSync(
+          'partial/code',
+          { language, syntaxHighlight })
       },
 
       cta: ({ value }) => {
