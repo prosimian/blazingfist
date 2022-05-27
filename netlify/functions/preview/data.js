@@ -3,9 +3,9 @@ import groq from 'groq'
 import {
   commonFields,
   pictureProjection
-} from '../sanity/projections.js'
+} from '../_src/sanity/projections.js'
 
-import client from '../sanity/sanityClient.js'
+import client from '../_src/sanity/sanityClient.js'
 
 export default async function getContent (docPath) {
   if (!client) return 'error'

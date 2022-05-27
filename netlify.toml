@@ -12,9 +12,7 @@
 [functions."preview"]
   external_node_modules = ["purgecss"]
   included_files = [
-    "netlify/functions/preview/js/**",
-    "netlify/functions/preview/liquid/**",
-    "netlify/functions/preview/style.css"
+    "netlify/functions/_src/**"
   ]
 
 [[redirects]]

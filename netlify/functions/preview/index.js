@@ -6,16 +6,18 @@ import { PurgeCSS } from 'purgecss'
 import { DOMParser } from 'linkedom'
 import htmlMinify from 'html-minifier-terser'
 
-import getContent from './src/content.js'
+import data from './data.js'
 
-import image from './utils/image.js'
-import domMods from './utils/domMods.js'
-import blocksToHTML from './utils/blocksToHTML.js'
-import sanitizeHTML from './utils/sanitizeHTML.js'
-import vimeoBackgrounds from './utils/vimeoBackgrounds.js'
+import image from '../_src/utils/image.js'
+import domMods from '../_src/utils/domMods.js'
+import blocksToHTML from '../_src/utils/blocksToHTML.js'
+import sanitizeHTML from '../_src/utils/sanitizeHTML.js'
+import vimeoBackgrounds from '../_src/utils/vimeoBackgrounds.js'
+
+const srcDir = 'netlify/functions/_src/'
 
 export async function handler (event) {
-  const page = await getContent(event.path)
+  const page = await data(event.path)
 
   if (page === 'error') {
     return {
@@ -44,7 +46,7 @@ export async function handler (event) {
       preview: true,
       vimeo: await vimeoBackgrounds([page])
     },
-    root: path.join(process.cwd(), 'netlify/functions/preview/liquid')
+    root: path.join(process.cwd(), `${srcDir}liquid`)
   })
   engine.registerFilter(
     'figure',
@@ -64,7 +66,7 @@ export async function handler (event) {
     .renderFile('document/preview', { page, content })
 
   // Purge the CSS
-  const cssPath = path.join(process.cwd(), 'netlify/functions/preview/style.css')
+  const cssPath = path.join(process.cwd(), `${srcDir}style.css`)
   const css = fse.existsSync(cssPath)
     ? fse.readFileSync(cssPath).toString('utf8')
     : ''
@@ -79,7 +81,7 @@ export async function handler (event) {
 
   // Collect the JS
   const js = {}
-  const jsPath = path.join(process.cwd(), 'netlify/functions/preview/js')
+  const jsPath = path.join(process.cwd(), `${srcDir}js`)
   fse
     .readdirSync(jsPath)
     .forEach(file => {

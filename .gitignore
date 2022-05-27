@@ -23,8 +23,11 @@ netlify/*
 !netlify/functions/
 
 netlify/functions/*
+!netlify/functions/_src/
 !netlify/functions/preview/
 
+netlify/functions/_src/*
+
 netlify/functions/preview/*
+!netlify/functions/preview/data.js
 !netlify/functions/preview/index.js
-!netlify/functions/preview/src/

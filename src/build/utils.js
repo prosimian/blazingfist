@@ -33,10 +33,11 @@ const compileSCSS = _ => {
     outputStyle: 'compressed',
   }).css
 
-  const previewDir = `./netlify/functions/preview/`
-  fse.ensureDirSync(previewDir)
+  // Share compiled css with functions.
+  const functionsSrcDir = `./netlify/functions/_src/`
+  fse.ensureDirSync(functionsSrcDir)
   fse.writeFile(
-    previewDir + 'style.css',
+    functionsSrcDir + 'style.css',
     css,
     err => { if (err) { console.error(err) } }
   )
